@@ -17,7 +17,9 @@ export default function UseContext(props) {
     console.log(res.data);
   };
 
-  const addProduct = () => {};
+  const addProduct = (item) => {
+      console.log('add to cart ', item)
+  };
 
   const deleteProduct = () => {};
   return (

@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import Context from "../context/Context";
 
 export default function Item() {
-  const { getProducts } = useContext(Context);
+  const { addProduct } = useContext(Context);
 
   return (
     <>
@@ -22,7 +22,7 @@ export default function Item() {
             <button
               className="home-item-comprar"
               onClick={() => {
-                getProducts();
+                addProduct('panchoo');
               }}
             >
               +
