@@ -23,7 +23,7 @@ export default function Item(props) {
             <button
               className="home-item-comprar"
               onClick={() => {
-                addProduct({id});
+                addProduct(id);
               }}
             >
               +

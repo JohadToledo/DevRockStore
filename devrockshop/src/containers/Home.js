@@ -12,9 +12,9 @@ export default function Home() {
     <div className="container">
       <div className="wraper">
         <div className="home">
-            {products.map((item)=>(
+            {products.map((item, i)=>(
               <>
-              <Item {...item} key={item.id}/>
+              <Item {...item} key={i}/>
               </>
 
             ))}

@@ -1,6 +1,6 @@
 import axios from "axios";
 import Context from "./Context";
-import { useReducer, useState } from "react";
+import { useReducer } from "react";
 import Reducer from "./Reducer";
 
 export default function UseContext(props) {
@@ -16,13 +16,17 @@ export default function UseContext(props) {
       dispatch({type: "GET_PRODUCTS", payload: res.data })
       // console.log(res.data);
     };
-    const [ state, dispatch ] = useReducer(Reducer, initialState);
     
-  const addProduct = (item) => {
-      console.log('add to cart ', item)
-  };
+    const addProduct = (item) => {
+      console.log('add to cart ', item)    
+      dispatch({ type: "ADD_PRODUCT", payload: item });
+    };
+    const [ state, dispatch ] = useReducer(Reducer, initialState);
 
-  const deleteProduct = () => {};
+  const deleteProduct = (item) => {
+    console.log("Eliminar carrito", item);
+    dispatch({ type: "DELETE_PRODUCT", payload: item });
+  };
   return (
     <Context.Provider
       value={{
