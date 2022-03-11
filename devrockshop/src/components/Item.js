@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import Context from "../context/Context";
 
 export default function Item(props) {
-  const {img, nombre, precio, medidas} = props
+  const {img, nombre, precio, medidas, id} = props
   const { addProduct } = useContext(Context);
 
   return (
@@ -23,7 +23,7 @@ export default function Item(props) {
             <button
               className="home-item-comprar"
               onClick={() => {
-                addProduct('panchoo');
+                addProduct({id});
               }}
             >
               +

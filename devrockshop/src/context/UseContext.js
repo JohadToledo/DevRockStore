@@ -1,10 +1,10 @@
 import axios from "axios";
 import Context from "./Context";
-import { useState } from "react";
+import { useReducer, useState } from "react";
+import Reducer from "./Reducer";
 
 export default function UseContext(props) {
   const { children } = props;
-  const [ state, setState ] = useState([]);
   const initialState = {
     products: [],
     cart: [],
@@ -12,11 +12,12 @@ export default function UseContext(props) {
   const getProducts = async () => {
     const res = await axios.get(
       "https://devrockstore-default-rtdb.firebaseio.com/productos.json"
-    );
-    setState(res.data);
-    console.log(res.data);
-  };
-
+      );
+      dispatch({type: "GET_PRODUCTS", payload: res.data })
+      // console.log(res.data);
+    };
+    const [ state, dispatch ] = useReducer(Reducer, initialState);
+    
   const addProduct = (item) => {
       console.log('add to cart ', item)
   };
@@ -25,8 +26,8 @@ export default function UseContext(props) {
   return (
     <Context.Provider
       value={{
-        products: state,
-        // cart: initialState.cart,
+        products: state.products,
+        cart: state.cart,
         getProducts,
         addProduct,
         deleteProduct,
