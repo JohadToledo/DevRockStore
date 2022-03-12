@@ -3,16 +3,18 @@ import CartItem from '../components/CartItem'
 import Context from '../context/Context'
 
 export default function Cart() {
-  const {deleteProduct, cart} = useContext(Context)
+  const {cart, deleteProduct} = useContext(Context)
   return (
     <>
+    
     <div className="carrito">
           <div className="carrito-listadito">
             {cart.map((item, i)=>(
               <CartItem 
               {...item} 
               key={i} 
-              deleteProduct={deleteProduct}/>
+              deleteProduct={deleteProduct}
+              />
             ))}
           </div>
 

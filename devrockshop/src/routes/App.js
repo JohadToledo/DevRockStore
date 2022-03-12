@@ -13,9 +13,9 @@ function App() {
         <UseContext>
           <Layout>
             <Routes>
-              <Route path="/" element={<Home />}></Route>
-              <Route path="/product" element={<Product />}></Route>
-              <Route path="/cart" element={<Cart />}></Route>
+              <Route exact path="/" element={<Home />}></Route>
+              <Route exact path="/product" element={<Product />}></Route>
+              <Route exact path="/cart" element={<Cart />}></Route>
             </Routes>
           </Layout>
         </UseContext>

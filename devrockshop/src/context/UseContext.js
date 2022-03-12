@@ -9,19 +9,21 @@ export default function UseContext(props) {
     products: [],
     cart: [],
   };
+  const [ state, dispatch ] = useReducer(Reducer, initialState);
+
   const getProducts = async () => {
     const res = await axios.get(
       "https://devrockstore-default-rtdb.firebaseio.com/productos.json"
       );
       dispatch({type: "GET_PRODUCTS", payload: res.data })
-      // console.log(res.data);
     };
     
     const addProduct = (item) => {
-      console.log('add to cart ', item)    
+      console.log('add to cart ', item)
+      console.log('es el state from usecontext: ', state)
+      console.log('es el cart from usecontext: ', state.cart)
       dispatch({ type: "ADD_PRODUCT", payload: item });
     };
-    const [ state, dispatch ] = useReducer(Reducer, initialState);
 
   const deleteProduct = (item) => {
     console.log("Eliminar carrito", item);

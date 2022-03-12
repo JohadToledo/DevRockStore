@@ -10,14 +10,16 @@ export default function Reducer(state, action) {
   switch (type) {
     case GET_PRODUCTS:
       return { ...state, products: payload };
+
     case ADD_PRODUCT:
       return {
         ...state,
         cart: [
           ...state.cart,
-          state.products.filter((ite) => ite.id === parseInt(payload)),
+          state.products.filter((ite) => ite.id == parseInt(payload)),
         ],
       };
+
     case DELETE_PRODUCT:
       console.log(
         payload,

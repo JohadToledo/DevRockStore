@@ -1,4 +1,5 @@
 import React from "react";
+import imgDelete from '../assets/statics/delete.png';
 
 export default function CartItem(props) {
   const {nombre, precio, img, id} = props[0]
@@ -18,7 +19,7 @@ export default function CartItem(props) {
       <h1 className="carrito-item-titulo">{nombre}</h1>
       <h3 className="carrito-item-precio">AR$ {precio}</h3>
     </div>
-    <img src="borrar.png" alt="" className="carrito-item-borrar" onClick={handleDelete}/>
+    <img src={imgDelete} alt="" className="carrito-item-borrar" onClick={handleDelete}/>
   </div>
     </>
   );
